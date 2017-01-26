@@ -1,0 +1,13 @@
+<div ng-controller="TagCtrl">
+  <table class="table table-responsive table-bordered table-stripped">
+    <th>Tag</th>
+    <th>Total User</th>
+    <th>Total Balance</th>
+
+    <tr ng-repeat="tag in tagsArray">
+      <td>{{tag}}</td>
+      <td>{{getUserCount(tag)}}</td>
+      <td>${{totalBalance}}</td>
+    </tr>
+  </table>
+</div>

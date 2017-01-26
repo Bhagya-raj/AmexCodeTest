@@ -1,0 +1,37 @@
+<div ng-controller="TagCtrl">
+  <table class="table table-responsive table-bordered table-stripped">
+    <th>Picture</th>
+    <th>Name</th>
+    <th>Date</th>
+
+    <tr ng-repeat="generatedRecord in generatedRecords | orderBy: sortVal">
+      <td><img src={{generatedRecord.picture}}></td>
+      <td class="retention-user"><a data-target="#myModal" data-toggle="modal" ng-click="setDataToModal(generatedRecord._id)">{{generatedRecord.name}}</a></td>
+      <td>{{generatedRecord.registered}}</td>
+    </tr>
+  </table>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">{{userData.name}}</h4>
+      </div>
+      <div class="modal-body">
+          <p><strong>Company Name:</strong> {{userData.company}}</p>
+          <p><strong>Email Address:</strong> {{userData.email}}</p>
+          <p><strong>Balance:</strong> {{userData.balance}}</p>
+          <p><strong>Phone:</strong> {{userData.phone}}</p>
+          <p><strong>Details:</strong> {{userData.about}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
