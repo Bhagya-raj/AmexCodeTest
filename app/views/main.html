@@ -1,0 +1,26 @@
+<div ng-controller="MainCtrl">
+  <table class="table table-responsive table-bordered table-stripped">
+    <th>Picture</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Balance</th>
+    <th>Company</th>
+    <th>Tags</th>
+    <th>Date</th>
+
+    <tr ng-repeat="generatedRecord in generatedRecords | orderBy: sortVal:true">
+      <td><img src={{generatedRecord.picture}}></td>
+      <td>{{generatedRecord.name}}</td>
+      <td>{{generatedRecord.email}}</td>
+      <td>{{generatedRecord.balance}}</td>
+      <td>{{generatedRecord.company}}</td>
+      <td>{{generatedRecord.tags}}
+          <div>
+              <button class="btn btn-sm btn-primary" ng-click="addTag(generatedRecord, $index)">Add Tag</button>
+              <input ng-model="tagsStore[$index]"/>
+          </div>
+      </td>
+      <td>{{generatedRecord.registered}}</td>
+    </tr>
+  </table>
+</div>
